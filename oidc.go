@@ -154,8 +154,8 @@ func (p *Provider) Claims(v interface{}) error {
 }
 
 // Endpoint returns the OAuth2 auth and token endpoints for the given provider.
-func (p *Provider) Endpoint() oauth2.Endpoint {
-	return oauth2.Endpoint{AuthURL: p.authURL, TokenURL: p.tokenURL}
+func (p *Provider) Endpoint(authStyle oauth2.AuthStyle) oauth2.Endpoint {
+	return oauth2.Endpoint{AuthURL: p.authURL, TokenURL: p.tokenURL, AuthStyle: authStyle}
 }
 
 // UserInfo represents the OpenID Connect userinfo claims.
